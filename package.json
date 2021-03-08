@@ -1,12 +1,11 @@
 {
-  "type": "module",
   "name": "vector",
   "version": "1.0.0",
   "main": "index.ts",
   "author": "Lopson <balzhinimaev-2011@mail.ru>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node --experimental-modules --es-module-specifier-resolution=node dist/index.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
