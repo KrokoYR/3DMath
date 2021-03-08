@@ -10,7 +10,7 @@ export class Vector2d {
 
   endPoint: Point2d;
 
-  get coordinates() {
+  get coordinates(): Point2d {
     const { startPoint, endPoint } = this;
     return {
       x: endPoint.x - startPoint.x,
@@ -18,11 +18,18 @@ export class Vector2d {
     };
   }
 
-  get length() {
+  get length(): number {
     const { x, y } = this.coordinates;
     const root = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-    if (Number.isNaN(root)) console.error(`Length cannot be less than zero`);
 
-    return root && Math.abs(root);
+    return Math.abs(root);
+  }
+
+  get hasZeroCoordinates(): boolean {
+    return Object.values(this.coordinates).some((coor) => coor === 0);
+  }
+
+  get isZeroVector(): boolean {
+    return Object.values(this.coordinates).every((coor) => coor === 0);
   }
 }

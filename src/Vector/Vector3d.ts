@@ -12,18 +12,25 @@ export class Vector3d extends Vector2d {
 
   endPoint: Point3d;
 
-  get coordinates() {
+  get coordinates(): Point3d {
     return {
       ...super.coordinates,
       z: this.endPoint.z - this.startPoint.z,
     };
   }
 
-  get length() {
+  get length(): number {
     const { x, y, z } = this.coordinates;
     const root = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
-    if (Number.isNaN(root)) console.error(`Length cannot be less than zero`);
 
-    return root && Math.abs(root);
+    return Math.abs(root);
+  }
+
+  get hasZeroCoordinates(): boolean {
+    return super.hasZeroCoordinates;
+  }
+
+  get isZeroVector(): boolean {
+    return super.isZeroVector;
   }
 }

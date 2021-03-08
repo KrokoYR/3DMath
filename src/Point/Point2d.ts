@@ -1,7 +1,7 @@
 export class Point2d {
-  constructor(pointX: number, pointY: number) {
-    this.x = pointX;
-    this.y = pointY;
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
   }
 
   x: number;
